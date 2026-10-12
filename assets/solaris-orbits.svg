@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="440" viewBox="0 0 1280 440" role="img" aria-labelledby="title description">
+<title id="title">SOLARIS — an animated Solar System</title>
+<desc id="description">A stylized Sun surrounded by eight planets moving along elliptical orbits, alongside the SOLARIS project title. Orbital periods and distances are illustrative, not to scale.</desc>
+<defs>
+  <linearGradient id="space" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#070d20"/><stop offset=".56" stop-color="#0b142c"/><stop offset="1" stop-color="#050919"/></linearGradient>
+  <radialGradient id="aura"><stop stop-color="#ffcc75" stop-opacity=".68"/><stop offset=".3" stop-color="#f78b39" stop-opacity=".22"/><stop offset="1" stop-color="#eb7232" stop-opacity="0"/></radialGradient>
+  <radialGradient id="sun"><stop stop-color="#fffbe4"/><stop offset=".38" stop-color="#ffdb78"/><stop offset=".85" stop-color="#f69a37"/><stop offset="1" stop-color="#ec6a30"/></radialGradient>
+  <filter id="planet-glow"><feGaussianBlur stdDeviation="6"/></filter>
+  <clipPath id="frame"><rect width="1280" height="440" rx="24"/></clipPath>
+</defs>
+<style>
+  @keyframes revolution { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes glow { 0%,100% {opacity:.75} 50% {opacity:1} }
+  .orbiting { transform-origin: 0px 0px; animation-name: revolution; animation-timing-function: linear; animation-iteration-count: infinite; }
+  .sun-aura { animation: glow 5s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) { .orbiting, .sun-aura { animation: none !important; } }
+</style>
+<g clip-path="url(#frame)">
+  <rect width="1280" height="440" fill="url(#space)"/>
+  <path d="M0 355 Q340 230 590 390 M715 0 Q1000 150 1280 38" fill="none" stroke="#6477b0" stroke-opacity=".11" stroke-width="1.5"/>
+  <circle cx="91" cy="57" r="1.45" fill="#aad7ff" opacity="0.16"/><circle cx="290" cy="136" r="0.65" fill="#f7f8ff" opacity="0.23"/><circle cx="489" cy="215" r="0.65" fill="#f7f8ff" opacity="0.30"/><circle cx="688" cy="294" r="0.65" fill="#f7f8ff" opacity="0.37"/><circle cx="887" cy="373" r="1" fill="#f7f8ff" opacity="0.44"/><circle cx="1086" cy="48" r="0.65" fill="#aad7ff" opacity="0.51"/><circle cx="45" cy="127" r="0.65" fill="#f7f8ff" opacity="0.58"/><circle cx="244" cy="206" r="0.65" fill="#f7f8ff" opacity="0.16"/><circle cx="443" cy="285" r="1" fill="#f7f8ff" opacity="0.23"/><circle cx="642" cy="364" r="1.45" fill="#f7f8ff" opacity="0.30"/><circle cx="841" cy="39" r="0.65" fill="#aad7ff" opacity="0.37"/><circle cx="1040" cy="118" r="0.65" fill="#f7f8ff" opacity="0.44"/><circle cx="1239" cy="197" r="1" fill="#f7f8ff" opacity="0.51"/><circle cx="198" cy="276" r="0.65" fill="#f7f8ff" opacity="0.58"/><circle cx="397" cy="355" r="0.65" fill="#f7f8ff" opacity="0.16"/><circle cx="596" cy="30" r="0.65" fill="#aad7ff" opacity="0.23"/><circle cx="795" cy="109" r="1" fill="#f7f8ff" opacity="0.30"/><circle cx="994" cy="188" r="0.65" fill="#f7f8ff" opacity="0.37"/><circle cx="1193" cy="267" r="1.45" fill="#f7f8ff" opacity="0.44"/><circle cx="152" cy="346" r="0.65" fill="#f7f8ff" opacity="0.51"/><circle cx="351" cy="21" r="1" fill="#aad7ff" opacity="0.58"/><circle cx="550" cy="100" r="0.65" fill="#f7f8ff" opacity="0.16"/><circle cx="749" cy="179" r="0.65" fill="#f7f8ff" opacity="0.23"/><circle cx="948" cy="258" r="0.65" fill="#f7f8ff" opacity="0.30"/><circle cx="1147" cy="337" r="1" fill="#f7f8ff" opacity="0.37"/><circle cx="106" cy="416" r="0.65" fill="#aad7ff" opacity="0.44"/><circle cx="305" cy="91" r="0.65" fill="#f7f8ff" opacity="0.51"/><circle cx="504" cy="170" r="1.45" fill="#f7f8ff" opacity="0.58"/><circle cx="703" cy="249" r="1" fill="#f7f8ff" opacity="0.16"/><circle cx="902" cy="328" r="0.65" fill="#f7f8ff" opacity="0.23"/><circle cx="1101" cy="407" r="0.65" fill="#aad7ff" opacity="0.30"/><circle cx="60" cy="82" r="0.65" fill="#f7f8ff" opacity="0.37"/><circle cx="259" cy="161" r="1" fill="#f7f8ff" opacity="0.44"/><circle cx="458" cy="240" r="0.65" fill="#f7f8ff" opacity="0.51"/><circle cx="657" cy="319" r="0.65" fill="#f7f8ff" opacity="0.58"/><circle cx="856" cy="398" r="0.65" fill="#aad7ff" opacity="0.16"/><circle cx="1055" cy="73" r="1.45" fill="#f7f8ff" opacity="0.23"/><circle cx="1254" cy="152" r="0.65" fill="#f7f8ff" opacity="0.30"/><circle cx="213" cy="231" r="0.65" fill="#f7f8ff" opacity="0.37"/><circle cx="412" cy="310" r="0.65" fill="#f7f8ff" opacity="0.44"/><circle cx="611" cy="389" r="1" fill="#aad7ff" opacity="0.51"/><circle cx="810" cy="64" r="0.65" fill="#f7f8ff" opacity="0.58"/><circle cx="1009" cy="143" r="0.65" fill="#f7f8ff" opacity="0.16"/><circle cx="1208" cy="222" r="0.65" fill="#f7f8ff" opacity="0.23"/><circle cx="167" cy="301" r="1" fill="#f7f8ff" opacity="0.30"/><circle cx="366" cy="380" r="1.45" fill="#aad7ff" opacity="0.37"/><circle cx="565" cy="55" r="0.65" fill="#f7f8ff" opacity="0.44"/><circle cx="764" cy="134" r="0.65" fill="#f7f8ff" opacity="0.51"/><circle cx="963" cy="213" r="1" fill="#f7f8ff" opacity="0.58"/><circle cx="1162" cy="292" r="0.65" fill="#f7f8ff" opacity="0.16"/><circle cx="121" cy="371" r="0.65" fill="#aad7ff" opacity="0.23"/><circle cx="320" cy="46" r="0.65" fill="#f7f8ff" opacity="0.30"/><circle cx="519" cy="125" r="1" fill="#f7f8ff" opacity="0.37"/><circle cx="718" cy="204" r="0.65" fill="#f7f8ff" opacity="0.44"/><circle cx="917" cy="283" r="1.45" fill="#f7f8ff" opacity="0.51"/><circle cx="1116" cy="362" r="0.65" fill="#aad7ff" opacity="0.58"/><circle cx="75" cy="37" r="1" fill="#f7f8ff" opacity="0.16"/><circle cx="274" cy="116" r="0.65" fill="#f7f8ff" opacity="0.23"/><circle cx="473" cy="195" r="0.65" fill="#f7f8ff" opacity="0.30"/><circle cx="672" cy="274" r="0.65" fill="#f7f8ff" opacity="0.37"/><circle cx="871" cy="353" r="1" fill="#aad7ff" opacity="0.44"/><circle cx="1070" cy="28" r="0.65" fill="#f7f8ff" opacity="0.51"/><circle cx="29" cy="107" r="0.65" fill="#f7f8ff" opacity="0.58"/><circle cx="228" cy="186" r="1.45" fill="#f7f8ff" opacity="0.16"/><circle cx="427" cy="265" r="1" fill="#f7f8ff" opacity="0.23"/><circle cx="626" cy="344" r="0.65" fill="#aad7ff" opacity="0.30"/><circle cx="825" cy="19" r="0.65" fill="#f7f8ff" opacity="0.37"/><circle cx="1024" cy="98" r="0.65" fill="#f7f8ff" opacity="0.44"/><circle cx="1223" cy="177" r="1" fill="#f7f8ff" opacity="0.51"/><circle cx="182" cy="256" r="0.65" fill="#f7f8ff" opacity="0.58"/><circle cx="381" cy="335" r="0.65" fill="#aad7ff" opacity="0.16"/><circle cx="580" cy="414" r="0.65" fill="#f7f8ff" opacity="0.23"/><circle cx="779" cy="89" r="1.45" fill="#f7f8ff" opacity="0.30"/><circle cx="978" cy="168" r="0.65" fill="#f7f8ff" opacity="0.37"/><circle cx="1177" cy="247" r="0.65" fill="#f7f8ff" opacity="0.44"/><circle cx="136" cy="326" r="0.65" fill="#aad7ff" opacity="0.51"/><circle cx="335" cy="405" r="1" fill="#f7f8ff" opacity="0.58"/><circle cx="534" cy="80" r="0.65" fill="#f7f8ff" opacity="0.16"/>
+  <rect x="50" y="45" width="176" height="29" rx="14.5" fill="#6fa9dd" fill-opacity=".08" stroke="#9abaff" stroke-opacity=".2"/>
+  <text x="66" y="64" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#b8cff6">INTERACTIVE 3D SPACE</text>
+  <text x="54" y="178" font-family="Arial, Helvetica, sans-serif" font-size="78" font-weight="800" letter-spacing="7" fill="#f1f5ff">SOLARIS</text>
+  <rect x="57" y="201" width="72" height="3" rx="1.5" fill="#ffb65e"/>
+  <text x="54" y="245" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#d4e0ff" letter-spacing=".4">The Solar System, brought to life.</text>
+  <text x="54" y="279" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#98aacc">Travel between worlds. Explore in 3D.</text>
+  <text x="54" y="366" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#9bb2dc" letter-spacing="1.2">EIGHT PLANETS   /   CINEMATIC EXPLORATION   /   THREE.JS</text>
+  <ellipse cx="913" cy="220" rx="44" ry="20.2" fill="none" stroke="#7a91c9" stroke-opacity=".22" stroke-width="1"/>
+<ellipse cx="913" cy="220" rx="76" ry="35.0" fill="none" stroke="#7a91c9" stroke-opacity=".22" stroke-width="1"/>
+<ellipse cx="913" cy="220" rx="110" ry="50.6" fill="none" stroke="#7a91c9" stroke-opacity=".22" stroke-width="1"/>
+<ellipse cx="913" cy="220" rx="148" ry="68.1" fill="none" stroke="#7a91c9" stroke-opacity=".22" stroke-width="1"/>
+<ellipse cx="913" cy="220" rx="187" ry="86.0" fill="none" stroke="#7a91c9" stroke-opacity=".22" stroke-width="1"/>
+<ellipse cx="913" cy="220" rx="229" ry="105.3" fill="none" stroke="#7a91c9" stroke-opacity=".22" stroke-width="1"/>
+<ellipse cx="913" cy="220" rx="269" ry="123.7" fill="none" stroke="#7a91c9" stroke-opacity=".22" stroke-width="1"/>
+<ellipse cx="913" cy="220" rx="310" ry="142.6" fill="none" stroke="#7a91c9" stroke-opacity=".22" stroke-width="1"/>
+  <circle class="sun-aura" cx="913" cy="220" r="69" fill="url(#aura)"/>
+  <circle cx="913" cy="220" r="18" fill="url(#sun)" stroke="#ffe6a5" stroke-opacity=".8" stroke-width=".8"/>
+  <g transform="translate(913 220) scale(1 .46)">
+  <g class="orbiting" style="animation-duration:7s;animation-delay:-1s">
+    <g transform="translate(44 0) scale(1 2.173913)">
+      <circle r="7" fill="#c2b4a5" opacity=".2" filter="url(#planet-glow)"/>
+      <circle r="4" fill="#c2b4a5"/>
+      <circle cx="-1.0" cy="-1.2" r="1.7" fill="#ffffff" opacity=".16"/>
+      
+    </g>
+  </g>
+</g>
+<g transform="translate(913 220) scale(1 .46)">
+  <g class="orbiting" style="animation-duration:10s;animation-delay:-6s">
+    <g transform="translate(76 0) scale(1 2.173913)">
+      <circle r="10" fill="#edc38c" opacity=".2" filter="url(#planet-glow)"/>
+      <circle r="7" fill="#edc38c"/>
+      <circle cx="-1.8" cy="-2.0" r="3.0" fill="#ffffff" opacity=".16"/>
+      
+    </g>
+  </g>
+</g>
+<g transform="translate(913 220) scale(1 .46)">
+  <g class="orbiting" style="animation-duration:14s;animation-delay:-4s">
+    <g transform="translate(110 0) scale(1 2.173913)">
+      <circle r="10.5" fill="#55baff" opacity=".2" filter="url(#planet-glow)"/>
+      <circle r="7.5" fill="#55baff"/>
+      <circle cx="-2.0" cy="-2.2" r="3.2" fill="#ffffff" opacity=".16"/>
+      <path d="M-2 -4 Q2 -7 4 -1 L1 3 L-4 1Z" fill="#8ad7ad" opacity=".9"/>
+    </g>
+  </g>
+</g>
+<g transform="translate(913 220) scale(1 .46)">
+  <g class="orbiting" style="animation-duration:19s;animation-delay:-13s">
+    <g transform="translate(148 0) scale(1 2.173913)">
+      <circle r="8.8" fill="#eb8767" opacity=".2" filter="url(#planet-glow)"/>
+      <circle r="5.8" fill="#eb8767"/>
+      <circle cx="-1.5" cy="-1.7" r="2.5" fill="#ffffff" opacity=".16"/>
+      
+    </g>
+  </g>
+</g>
+<g transform="translate(913 220) scale(1 .46)">
+  <g class="orbiting" style="animation-duration:27s;animation-delay:-11s">
+    <g transform="translate(187 0) scale(1 2.173913)">
+      <circle r="20" fill="#d9b192" opacity=".2" filter="url(#planet-glow)"/>
+      <circle r="17" fill="#d9b192"/>
+      <circle cx="-4.4" cy="-4.9" r="7.3" fill="#ffffff" opacity=".16"/>
+      <path d="M -13.600000000000001 -4 Q 0 -1 13.600000000000001 -4 M -14.45 5 Q 0 7 14.45 5" fill="none" stroke="#7c493e" stroke-width="2.3" opacity=".47"/>
+    </g>
+  </g>
+</g>
+<g transform="translate(913 220) scale(1 .46)">
+  <g class="orbiting" style="animation-duration:36s;animation-delay:-24s">
+    <g transform="translate(229 0) scale(1 2.173913)">
+      <circle r="17" fill="#edd49d" opacity=".2" filter="url(#planet-glow)"/>
+      <circle r="14" fill="#edd49d"/>
+      <circle cx="-3.6" cy="-4.1" r="6.0" fill="#ffffff" opacity=".16"/>
+      <ellipse cx="0" cy="0" rx="27.3" ry="9.1" fill="none" stroke="#f6e3bb" stroke-width="3.3" stroke-opacity=".85" transform="rotate(-23)"/>
+    </g>
+  </g>
+</g>
+<g transform="translate(913 220) scale(1 .46)">
+  <g class="orbiting" style="animation-duration:48s;animation-delay:-15s">
+    <g transform="translate(269 0) scale(1 2.173913)">
+      <circle r="13" fill="#88d7e0" opacity=".2" filter="url(#planet-glow)"/>
+      <circle r="10" fill="#88d7e0"/>
+      <circle cx="-2.6" cy="-2.9" r="4.3" fill="#ffffff" opacity=".16"/>
+      
+    </g>
+  </g>
+</g>
+<g transform="translate(913 220) scale(1 .46)">
+  <g class="orbiting" style="animation-duration:62s;animation-delay:-39s">
+    <g transform="translate(310 0) scale(1 2.173913)">
+      <circle r="13" fill="#557fe3" opacity=".2" filter="url(#planet-glow)"/>
+      <circle r="10" fill="#557fe3"/>
+      <circle cx="-2.6" cy="-2.9" r="4.3" fill="#ffffff" opacity=".16"/>
+      
+    </g>
+  </g>
+</g>
+  <text x="1218" y="406" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="10" letter-spacing="1.2" fill="#8e9dc1">ILLUSTRATIVE ORBITS — NOT TO SCALE</text>
+</g>
+</svg>
