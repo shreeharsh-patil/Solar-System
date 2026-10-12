@@ -87,6 +87,11 @@
   #years{position:fixed;left:26px;top:76px;z-index:4;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);pointer-events:none}
   #years b{color:var(--accent2);font-weight:700}
 
+  @media (prefers-reduced-motion: reduce) {
+    #loader .orbit { animation:none; }
+    #loader, #info, .pill, .sw i, .sw i::after { transition-duration:0.01ms; }
+  }
+
   @media(max-width:820px){
     header{top:14px;left:16px}
     #years{left:16px;top:62px}
@@ -541,11 +546,14 @@ async function build(){
   const sunMesh = new THREE.Mesh(new THREE.SphereGeometry(SUN_R,64,64), sunMat);
   sunGroup.add(sunMesh);
   const glowTex = makeRadial([[0,'rgba(255,225,160,1)'],[.18,'rgba(255,175,70,.55)'],[.5,'rgba(255,110,25,.14)'],[1,'rgba(255,80,0,0)']]);
+  const sunGlows = [];
   [[34,1],[95,.35]].forEach(([s,o])=>{
     const spr = new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex,blending:THREE.AdditiveBlending,depthWrite:false,transparent:true,opacity:o}));
     spr.scale.set(s,s,1); sunGroup.add(spr);
+    sunGlows.push({sprite:spr,baseOpacity:o});
   });
 
+  sunGroup.userData.glows = sunGlows;
   const sunBody = {
     ...SUN_DATA, holder:sunGroup, radius:SUN_R, minDist:SUN_R*1.8, viewDist:22,
     getPos(o){ return this.holder.getWorldPosition(o); },
@@ -712,9 +720,9 @@ function updateUI(item){
 }
 
 /* controls panel */
-let speed = 1, paused = false, labelsOn = true, simYears = 0;
+let speed = 1, targetSpeed = 1, paused = false, labelsOn = true, simYears = 0;
 const speedEl=$('#speed'), speedVal=$('#speedVal');
-speedEl.addEventListener('input',()=>{ speed=Math.pow(speedEl.value/20,2); speedVal.textContent=speed.toFixed(1)+'×'; });
+speedEl.addEventListener('input',()=>{ targetSpeed=Math.pow(speedEl.value/20,2); speedVal.textContent=targetSpeed.toFixed(1)+'×'; });
 $('#pause').addEventListener('click',e=>{ paused=!paused; e.target.textContent=paused?'▶ Play':'⏸ Pause'; });
 $('#tOrbits').addEventListener('change',e=>{ orbitLines.forEach(l=>l.visible=e.target.checked); moonLines.forEach(l=>l.visible=e.target.checked); });
 $('#tLabels').addEventListener('change',e=>{ labelsOn=e.target.checked; });
@@ -762,6 +770,7 @@ addEventListener('resize',()=>{
 const clock = new THREE.Clock();
 const tmpP = new THREE.Vector3(), tmpC = new THREE.Vector3(), tmpL = new THREE.Vector3();
 const earthOmega = .3;
+let coronaTime = 0;
 
 function updateLabels(){
   const w=innerWidth,h=innerHeight;
@@ -778,9 +787,17 @@ function updateLabels(){
 function animate(){
   requestAnimationFrame(animate);
   const dt = Math.min(clock.getDelta(),.1);
+  // Ease speed changes without changing the slider's target value or pause behavior.
+  speed = targetSpeed === 0 ? 0 : speed + (targetSpeed - speed) * (1 - Math.exp(-8 * dt));
   const sdt = paused ? 0 : dt*speed;
 
-  sunMat.uniforms.uTime.value += dt;
+  // All celestial motion, including the solar surface, pauses consistently.
+  sunMat.uniforms.uTime.value += sdt;
+  coronaTime += sdt;
+  const glowPulse = 1 + .04 * Math.sin(coronaTime * .6);
+  for(const glow of bodies[0].holder.userData.glows){
+    glow.sprite.material.opacity = glow.baseOpacity * glowPulse;
+  }
   simYears += sdt*earthOmega/(Math.PI*2);
   $('#yearsVal').textContent = simYears.toFixed(2);
 
@@ -798,7 +815,7 @@ function animate(){
   }
   beltGroup.rotation.y += sdt*.02;
   kuiperGroup.rotation.y += sdt*.004;
-  scene.userData.stars.rotation.y += dt*.0015;
+  scene.userData.stars.rotation.y += sdt*.0015;
 
   /* camera focus: fly-to transition, then follow */
   if(trans){
